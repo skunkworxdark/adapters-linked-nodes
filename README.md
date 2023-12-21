@@ -5,6 +5,8 @@ A set of InvokeAI nodes for linked adapters (ControlNet, IP-Adaptor & T2I-Adapte
 - `IP-Adapter-Linked` - Collects IP-Adapter info to pass to other nodes.
 - `T2I-Adapter-Linked` - Collects T2I-Adapter info to pass to other nodes.
 
+Note: These are inherited from the core nodes so any update to the core nodes should be reflected in these. 
+
 ## Usage
 ### <ins>Install</ins><BR>
 There are two options to install the nodes:
