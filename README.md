@@ -1,7 +1,7 @@
 # `adapters-linked-nodes` for InvokeAI (v3.5+)
 A set of InvokeAI nodes for linked adapters (ControlNet, IP-Adaptor & T2I-Adapter). This allows multiple adapters to be chained together without using a collect node which means it can be used inside an `iterate` node without collecting on every iteration.
 
-- `ControlNet-Linked` - Extracts a String value of a label from metadata.
+- `ControlNet-Linked` - Collects ControlNet info to pass to other nodes.
 - `IP-Adapter-Linked` - Collects IP-Adapter info to pass to other nodes.
 - `T2I-Adapter-Linked` - Collects T2I-Adapter info to pass to other nodes.
 
