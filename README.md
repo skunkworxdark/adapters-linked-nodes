@@ -18,7 +18,7 @@ There are two options to install the nodes:
     git clone https://github.com/skunkworxdark/adapters-linked-nodes.git
     ```
 
-2. Manually download [adapters-linked.py](adapters-linked.py) & [__init__.py](__init__.py) then place them in a subfolder under `invokeai/nodes`. 
+2. Manually download [adapters_linked.py](adapters_linked.py) & [__init__.py](__init__.py) then place them in a subfolder under `invokeai/nodes`. 
 
 ### <ins>Update</ins><BR>
 Run a `git pull` from the `adapters-linked-nodes` folder.
