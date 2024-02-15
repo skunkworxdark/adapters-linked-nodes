@@ -19,7 +19,7 @@ def append_list(new_item, items, item_cls):
     """Add an item to an exiting item or list of items then output as a list of items."""
 
     result = []
-    if items is None or len(items) == 0 or (isinstance(items, list) and len(items) == 0):
+    if items is None or (isinstance(items, list) and len(items) == 0):
         pass
     elif isinstance(items, item_cls):
         result.append(items)
@@ -43,7 +43,7 @@ class ControlListOutput(BaseInvocationOutput):
     title="ControlNet-Linked",
     tags=["controlnet"],
     category="controlnet",
-    version="1.1.0",
+    version="1.1.1",
 )
 class ControlNetLinkedInvocation(ControlNetInvocation):
     """Collects ControlNet info to pass to other nodes."""
@@ -76,7 +76,7 @@ class IPAdapterListOutput(BaseInvocationOutput):
     title="IP-Adapter-Linked",
     tags=["ip_adapter", "control"],
     category="ip_adapter",
-    version="1.1.0",
+    version="1.1.1",
 )
 class IPAdapterLinkedInvocation(IPAdapterInvocation):
     """Collects IP-Adapter info to pass to other nodes."""
@@ -110,7 +110,7 @@ class T2IAdapterListOutput(BaseInvocationOutput):
     title="T2I-Adapter-Linked",
     tags=["t2i_adapter", "control"],
     category="t2i_adapter",
-    version="1.0.0",
+    version="1.0.1",
 )
 class T2IAdapterLinkedInvocation(T2IAdapterInvocation):
     """Collects T2I-Adapter info to pass to other nodes."""
