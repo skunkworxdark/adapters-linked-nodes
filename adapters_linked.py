@@ -1,18 +1,16 @@
-from typing import List, Optional, Union
+from typing import Optional, Union
 
 from invokeai.app.invocations.baseinvocation import (
     BaseInvocationOutput,
     Input,
-    InputField,
     InvocationContext,
-    OutputField,
     invocation,
     invocation_output,
 )
 from invokeai.app.invocations.controlnet_image_processors import ControlField, ControlNetInvocation
+from invokeai.app.invocations.fields import FieldDescriptions, InputField, OutputField
 from invokeai.app.invocations.ip_adapter import IPAdapterField, IPAdapterInvocation
 from invokeai.app.invocations.t2i_adapter import T2IAdapterField, T2IAdapterInvocation
-from invokeai.app.shared.fields import FieldDescriptions
 
 
 def append_list(new_item, items, item_cls):
