@@ -1,4 +1,4 @@
-from typing import Optional, Union
+from typing import Any, Optional, Union
 
 from invokeai.app.invocations.baseinvocation import (
     BaseInvocationOutput,
@@ -13,18 +13,36 @@ from invokeai.app.invocations.ip_adapter import IPAdapterField, IPAdapterInvocat
 from invokeai.app.invocations.t2i_adapter import T2IAdapterField, T2IAdapterInvocation
 
 
-def append_list(new_item, items, item_cls):
-    """Add an item to an exiting item or list of items then output as a list of items."""
+def append_list(item_cls: type[Any], new_item: Any, items: Union[Any, list[Any], None] = None) -> list[Any]:
+    """Combines any number of items or lists into a single list,
+    ensuring consistency in type.
 
-    result = []
-    if items is None or (isinstance(items, list) and len(items) == 0):
-        pass
-    elif isinstance(items, item_cls):
+    Args:
+        item_cls: The expected type of elements in the list.
+        items: An existing list or single item of type `item_cls`.
+        new_items: Additional item(s) to append. (default=None)
+
+    Returns:
+        The updated list containing valid items.
+
+    Raises:
+        ValueError: If any item in the list or new_item is not of the expected type.
+    """
+
+    if not isinstance(new_item, item_cls):
+        raise ValueError(f"Invalid new_item type in: {new_item},  expected {item_cls}")
+
+    if items is None:
+        return [new_item]
+
+    result: list[item_cls] = []
+
+    if isinstance(items, item_cls):
         result.append(items)
     elif isinstance(items, list) and all(isinstance(i, item_cls) for i in items):
         result.extend(items)
     else:
-        raise ValueError(f"Invalid adapter list format: {items}")
+        raise ValueError(f"Invalid items type in: {items},  expected {item_cls}")
 
     result.append(new_item)
     return result
@@ -57,7 +75,7 @@ class ControlNetLinkedInvocation(ControlNetInvocation):
         # Call parent
         output = super().invoke(context).control
         # Append the control output to the input list
-        control_list = append_list(output, self.control_list, ControlField)
+        control_list = append_list(ControlField, output, self.control_list)
         return ControlListOutput(control_list=control_list)
 
 
@@ -91,7 +109,7 @@ class IPAdapterLinkedInvocation(IPAdapterInvocation):
         # Call parent
         output = super().invoke(context).ip_adapter
         # Append the control output to the input list
-        result = append_list(output, self.ip_adapter_list, IPAdapterField)
+        result = append_list(IPAdapterField, output, self.ip_adapter_list)
         return IPAdapterListOutput(ip_adapter_list=result)
 
 
@@ -125,5 +143,5 @@ class T2IAdapterLinkedInvocation(T2IAdapterInvocation):
         # Call parent
         output = super().invoke(context).t2i_adapter
         # Append the control output to the input list
-        t2i_adapter_list = append_list(output, self.t2i_adapter_list, T2IAdapterField)
+        t2i_adapter_list = append_list(T2IAdapterField, output, self.t2i_adapter_list)
         return T2IAdapterListOutput(t2i_adapter_list=t2i_adapter_list)
