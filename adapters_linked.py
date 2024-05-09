@@ -7,9 +7,7 @@ from invokeai.invocation_api import (
     BaseInvocationOutput,
     FieldDescriptions,
     Input,
-    InputField,
     InvocationContext,
-    OutputField,
     invocation,
     invocation_output,
 )
