@@ -1,6 +1,6 @@
 from typing import Any, Optional, Union
 
-from invokeai.app.invocations.controlnet_image_processors import ControlField, ControlNetInvocation
+from invokeai.app.invocations.controlnet import ControlField, ControlNetInvocation
 from invokeai.app.invocations.ip_adapter import IPAdapterField, IPAdapterInvocation
 from invokeai.app.invocations.t2i_adapter import T2IAdapterField, T2IAdapterInvocation
 from invokeai.invocation_api import (
