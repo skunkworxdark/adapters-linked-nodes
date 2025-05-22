@@ -3,9 +3,12 @@ Discord Link :- [adapters-linked-nodes](https://discord.com/channels/10201235590
 
 A set of InvokeAI nodes for linked adapters (ControlNet, IP-Adaptor & T2I-Adapter). This allows multiple adapters to be chained together without using a `collect` node which means it can be used inside an `iterate` node without collecting on every iteration.
 
-- `ControlNet-Linked` - Collects ControlNet info to pass to other nodes.
-- `IP-Adapter-Linked` - Collects IP-Adapter info to pass to other nodes.
-- `T2I-Adapter-Linked` - Collects T2I-Adapter info to pass to other nodes.
+- `ControlNet inked` - Collects ControlNet info to pass to other nodes.
+- `IP-Adapter Linked` - Collects IP-Adapter info to pass to other nodes.
+- `T2I-Adapter Linked` - Collects T2I-Adapter info to pass to other nodes.
+- `FLUX ControlNet Linked` - Collects FLUX ControlNet info to pass to other nodes.
+- `FLUX Redux Linked` - Collects FLUX Redux info to pass to other nodes.
+- `Prompt - FLUX Linked` - Collect Flux Prompt conditionings to pass to other nodes.
 
 Note: These are inherited from the core nodes so any update to the core nodes should be reflected in these. 
 
@@ -55,3 +58,6 @@ Delete the `adapters-linked-nodes` folder. Or rename it to `_adapters-linked-nod
 
 [tiled_upscaling_controlnet-linked_workflow.json](workflows/tiled_upscaling_controlnet-linked_workflow.json)
 ![Alt text](images/tiled_upscale_controlnet_linked-workflow.png)
+
+[flux_linked_workflow](workflows/flux_linked_workflow.json)
+![flux_linked_workflow](images/FLUX-Linked-workflow.png)

@@ -1,0 +1,825 @@
+{
+  "name": "T-Flux Linked Adapters 2 ",
+  "author": "",
+  "description": "",
+  "version": "",
+  "contact": "",
+  "tags": "",
+  "notes": "",
+  "exposedFields": [],
+  "meta": {
+    "category": "user",
+    "version": "3.0.0"
+  },
+  "id": "9430a6a3-6e10-4a5b-a11c-a3d12f477581",
+  "form": {
+    "elements": {
+      "root": {
+        "id": "root",
+        "data": {
+          "layout": "column",
+          "children": []
+        },
+        "type": "container"
+      }
+    },
+    "rootElementId": "root"
+  },
+  "nodes": [
+    {
+      "id": "flux_model_loader:FPbJoMr42L",
+      "type": "invocation",
+      "data": {
+        "id": "flux_model_loader:FPbJoMr42L",
+        "version": "1.0.6",
+        "nodePack": "invokeai",
+        "label": "",
+        "notes": "",
+        "type": "flux_model_loader",
+        "inputs": {
+          "model": {
+            "name": "model",
+            "label": "",
+            "description": "",
+            "value": {
+              "key": "ec4d88f4-c305-4a80-9d43-901adf42396c",
+              "hash": "blake3:143b8bab64a1f716c7a8256aaa7a6f47f7b6f02d537bff77e9eeae81b339b089",
+              "name": "BM25-10Step",
+              "base": "flux",
+              "type": "main",
+              "submodel_type": null
+            }
+          },
+          "t5_encoder_model": {
+            "name": "t5_encoder_model",
+            "label": "",
+            "description": "",
+            "value": {
+              "key": "b922ebd5-db8b-461a-a9a1-88059e104e3a",
+              "hash": "blake3:12f3f5d4856e684c627c0b5c403ace83a8e8baaf0fa6518cd230b5ec1c519107",
+              "name": "t5_base_encoder",
+              "base": "any",
+              "type": "t5_encoder",
+              "submodel_type": null
+            }
+          },
+          "clip_embed_model": {
+            "name": "clip_embed_model",
+            "label": "",
+            "description": "",
+            "value": {
+              "key": "53e9cf2d-04f9-467f-a749-b530a769e8c0",
+              "hash": "blake3:d48a07f3313eaa47e3c192a279eb6e244dc388339d5dac1a8b3740dbde8909e7",
+              "name": "CLIP-Registers-Gated_for_invoke",
+              "base": "any",
+              "type": "clip_embed",
+              "submodel_type": null
+            }
+          },
+          "vae_model": {
+            "name": "vae_model",
+            "label": "",
+            "description": "",
+            "value": {
+              "key": "0debbc08-75f0-476b-aa0a-57d3c8dd987c",
+              "hash": "blake3:ce21cb76364aa6e2421311cf4a4b5eb052a76c4f1cd207b50703d8978198a068",
+              "name": "FLUX.1-schnell_ae",
+              "base": "flux",
+              "type": "vae",
+              "submodel_type": null
+            }
+          }
+        },
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": true
+      },
+      "position": {
+        "x": 350,
+        "y": 1100
+      }
+    },
+    {
+      "id": "flux_denoise:vueTlz4hym",
+      "type": "invocation",
+      "data": {
+        "id": "flux_denoise:vueTlz4hym",
+        "version": "3.3.0",
+        "nodePack": "invokeai",
+        "label": "",
+        "notes": "",
+        "type": "flux_denoise",
+        "inputs": {
+          "board": {
+            "name": "board",
+            "label": "",
+            "description": ""
+          },
+          "metadata": {
+            "name": "metadata",
+            "label": "",
+            "description": ""
+          },
+          "latents": {
+            "name": "latents",
+            "label": "",
+            "description": ""
+          },
+          "denoise_mask": {
+            "name": "denoise_mask",
+            "label": "",
+            "description": ""
+          },
+          "denoising_start": {
+            "name": "denoising_start",
+            "label": "",
+            "description": "",
+            "value": 0
+          },
+          "denoising_end": {
+            "name": "denoising_end",
+            "label": "",
+            "description": "",
+            "value": 1
+          },
+          "add_noise": {
+            "name": "add_noise",
+            "label": "",
+            "description": "",
+            "value": true
+          },
+          "transformer": {
+            "name": "transformer",
+            "label": "",
+            "description": ""
+          },
+          "control_lora": {
+            "name": "control_lora",
+            "label": "",
+            "description": ""
+          },
+          "positive_text_conditioning": {
+            "name": "positive_text_conditioning",
+            "label": "",
+            "description": ""
+          },
+          "negative_text_conditioning": {
+            "name": "negative_text_conditioning",
+            "label": "",
+            "description": ""
+          },
+          "redux_conditioning": {
+            "name": "redux_conditioning",
+            "label": "",
+            "description": ""
+          },
+          "fill_conditioning": {
+            "name": "fill_conditioning",
+            "label": "",
+            "description": ""
+          },
+          "cfg_scale": {
+            "name": "cfg_scale",
+            "label": "",
+            "description": "",
+            "value": 1
+          },
+          "cfg_scale_start_step": {
+            "name": "cfg_scale_start_step",
+            "label": "",
+            "description": "",
+            "value": 0
+          },
+          "cfg_scale_end_step": {
+            "name": "cfg_scale_end_step",
+            "label": "",
+            "description": "",
+            "value": -1
+          },
+          "width": {
+            "name": "width",
+            "label": "",
+            "description": "",
+            "value": 1024
+          },
+          "height": {
+            "name": "height",
+            "label": "",
+            "description": "",
+            "value": 1024
+          },
+          "num_steps": {
+            "name": "num_steps",
+            "label": "",
+            "description": "",
+            "value": 30
+          },
+          "guidance": {
+            "name": "guidance",
+            "label": "",
+            "description": "",
+            "value": 4
+          },
+          "seed": {
+            "name": "seed",
+            "label": "",
+            "description": "",
+            "value": 2569262118
+          },
+          "control": {
+            "name": "control",
+            "label": "",
+            "description": ""
+          },
+          "controlnet_vae": {
+            "name": "controlnet_vae",
+            "label": "",
+            "description": ""
+          },
+          "ip_adapter": {
+            "name": "ip_adapter",
+            "label": "",
+            "description": ""
+          }
+        },
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": true
+      },
+      "position": {
+        "x": 1525,
+        "y": 1100
+      }
+    },
+    {
+      "id": "canvas_output:ObQYoRff5e",
+      "type": "invocation",
+      "data": {
+        "id": "canvas_output:ObQYoRff5e",
+        "version": "1.0.2",
+        "nodePack": "invokeai",
+        "label": "",
+        "notes": "",
+        "type": "flux_vae_decode",
+        "inputs": {
+          "board": {
+            "name": "board",
+            "label": "",
+            "description": "",
+            "value": {
+              "board_id": "b82e88b6-caf2-4ae8-ae06-7550bc16959b"
+            }
+          },
+          "metadata": {
+            "name": "metadata",
+            "label": "",
+            "description": ""
+          },
+          "latents": {
+            "name": "latents",
+            "label": "",
+            "description": ""
+          },
+          "vae": {
+            "name": "vae",
+            "label": "",
+            "description": ""
+          }
+        },
+        "isOpen": true,
+        "isIntermediate": false,
+        "useCache": false
+      },
+      "position": {
+        "x": 1900,
+        "y": 1100
+      }
+    },
+    {
+      "id": "f6f2887f-e36c-4500-957a-d2d76b9980bd",
+      "type": "invocation",
+      "data": {
+        "id": "f6f2887f-e36c-4500-957a-d2d76b9980bd",
+        "type": "flux_controlnet_linked",
+        "version": "1.0.0",
+        "label": "",
+        "notes": "",
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": true,
+        "nodePack": "invokeai",
+        "inputs": {
+          "image": {
+            "name": "image",
+            "label": "",
+            "description": "",
+            "value": {
+              "image_name": "324d8c88-02df-46c2-b6e1-004817b3fcda.png"
+            }
+          },
+          "control_model": {
+            "name": "control_model",
+            "label": "",
+            "description": "",
+            "value": {
+              "key": "ee340250-1772-4956-a25e-9ca6e55701b4",
+              "hash": "blake3:fbf4cf01135231b4cd9f4cadc789409678bb22830831f34967ffee6e5d0a7427",
+              "name": "FLUX.1-dev-ControlNet-Union-Pro-2.0",
+              "base": "flux",
+              "type": "controlnet"
+            }
+          },
+          "control_weight": {
+            "name": "control_weight",
+            "label": "",
+            "description": "",
+            "value": 0.75
+          },
+          "begin_step_percent": {
+            "name": "begin_step_percent",
+            "label": "",
+            "description": "",
+            "value": 0
+          },
+          "end_step_percent": {
+            "name": "end_step_percent",
+            "label": "",
+            "description": "",
+            "value": 0.75
+          },
+          "resize_mode": {
+            "name": "resize_mode",
+            "label": "",
+            "description": "",
+            "value": "just_resize"
+          },
+          "instantx_control_mode": {
+            "name": "instantx_control_mode",
+            "label": "",
+            "description": "",
+            "value": -1
+          },
+          "controlnet_list": {
+            "name": "controlnet_list",
+            "label": "",
+            "description": ""
+          }
+        }
+      },
+      "position": {
+        "x": 750,
+        "y": 1825
+      }
+    },
+    {
+      "id": "a4edddc1-9028-454b-915d-c3395b314ff3",
+      "type": "invocation",
+      "data": {
+        "id": "a4edddc1-9028-454b-915d-c3395b314ff3",
+        "type": "flux_controlnet_linked",
+        "version": "1.0.0",
+        "label": "",
+        "notes": "",
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": true,
+        "nodePack": "invokeai",
+        "inputs": {
+          "image": {
+            "name": "image",
+            "label": "",
+            "description": "",
+            "value": {
+              "image_name": "98cb590d-1d29-4fd1-ba0a-d10c103fdac7.png"
+            }
+          },
+          "control_model": {
+            "name": "control_model",
+            "label": "",
+            "description": "",
+            "value": {
+              "key": "ee340250-1772-4956-a25e-9ca6e55701b4",
+              "hash": "blake3:fbf4cf01135231b4cd9f4cadc789409678bb22830831f34967ffee6e5d0a7427",
+              "name": "FLUX.1-dev-ControlNet-Union-Pro-2.0",
+              "base": "flux",
+              "type": "controlnet"
+            }
+          },
+          "control_weight": {
+            "name": "control_weight",
+            "label": "",
+            "description": "",
+            "value": 0.75
+          },
+          "begin_step_percent": {
+            "name": "begin_step_percent",
+            "label": "",
+            "description": "",
+            "value": 0
+          },
+          "end_step_percent": {
+            "name": "end_step_percent",
+            "label": "",
+            "description": "",
+            "value": 0.75
+          },
+          "resize_mode": {
+            "name": "resize_mode",
+            "label": "",
+            "description": "",
+            "value": "just_resize"
+          },
+          "instantx_control_mode": {
+            "name": "instantx_control_mode",
+            "label": "",
+            "description": "",
+            "value": -1
+          },
+          "controlnet_list": {
+            "name": "controlnet_list",
+            "label": "",
+            "description": ""
+          }
+        }
+      },
+      "position": {
+        "x": 1125,
+        "y": 1825
+      }
+    },
+    {
+      "id": "1428e397-6bb3-41e6-b54c-837d02b4a7e9",
+      "type": "invocation",
+      "data": {
+        "id": "1428e397-6bb3-41e6-b54c-837d02b4a7e9",
+        "type": "flux_redux_linked",
+        "version": "1.0.0",
+        "label": "",
+        "notes": "",
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": true,
+        "nodePack": "invokeai",
+        "inputs": {
+          "image": {
+            "name": "image",
+            "label": "",
+            "description": "",
+            "value": {
+              "image_name": "324d8c88-02df-46c2-b6e1-004817b3fcda.png"
+            }
+          },
+          "mask": {
+            "name": "mask",
+            "label": "",
+            "description": ""
+          },
+          "redux_model": {
+            "name": "redux_model",
+            "label": "",
+            "description": "",
+            "value": {
+              "key": "a7b9c89e-4545-4f99-9c6d-3bc05d7ccd61",
+              "hash": "blake3:dbe46088b71779c8f073670825844abbc3a89d637d23c1b839195d59db5e6fd5",
+              "name": "FLUX Redux",
+              "base": "flux",
+              "type": "flux_redux"
+            }
+          },
+          "downsampling_factor": {
+            "name": "downsampling_factor",
+            "label": "",
+            "description": "",
+            "value": 1
+          },
+          "downsampling_function": {
+            "name": "downsampling_function",
+            "label": "",
+            "description": "",
+            "value": "area"
+          },
+          "weight": {
+            "name": "weight",
+            "label": "",
+            "description": "",
+            "value": 1
+          },
+          "redux_conditioning_list": {
+            "name": "redux_conditioning_list",
+            "label": "",
+            "description": ""
+          }
+        }
+      },
+      "position": {
+        "x": 750,
+        "y": 1375
+      }
+    },
+    {
+      "id": "804ab528-1edb-43f7-949f-920f89f2b11c",
+      "type": "invocation",
+      "data": {
+        "id": "804ab528-1edb-43f7-949f-920f89f2b11c",
+        "type": "flux_redux_linked",
+        "version": "1.0.0",
+        "label": "",
+        "notes": "",
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": true,
+        "nodePack": "invokeai",
+        "inputs": {
+          "image": {
+            "name": "image",
+            "label": "",
+            "description": "",
+            "value": {
+              "image_name": "98cb590d-1d29-4fd1-ba0a-d10c103fdac7.png"
+            }
+          },
+          "mask": {
+            "name": "mask",
+            "label": "",
+            "description": ""
+          },
+          "redux_model": {
+            "name": "redux_model",
+            "label": "",
+            "description": "",
+            "value": {
+              "key": "a7b9c89e-4545-4f99-9c6d-3bc05d7ccd61",
+              "hash": "blake3:dbe46088b71779c8f073670825844abbc3a89d637d23c1b839195d59db5e6fd5",
+              "name": "FLUX Redux",
+              "base": "flux",
+              "type": "flux_redux"
+            }
+          },
+          "downsampling_factor": {
+            "name": "downsampling_factor",
+            "label": "",
+            "description": "",
+            "value": 1
+          },
+          "downsampling_function": {
+            "name": "downsampling_function",
+            "label": "",
+            "description": "",
+            "value": "area"
+          },
+          "weight": {
+            "name": "weight",
+            "label": "",
+            "description": "",
+            "value": 1
+          },
+          "redux_conditioning_list": {
+            "name": "redux_conditioning_list",
+            "label": "",
+            "description": ""
+          }
+        }
+      },
+      "position": {
+        "x": 1125,
+        "y": 1375
+      }
+    },
+    {
+      "id": "e7ed79f4-c4b4-4b6f-9297-dbfebe383f9e",
+      "type": "invocation",
+      "data": {
+        "id": "e7ed79f4-c4b4-4b6f-9297-dbfebe383f9e",
+        "type": "flux_text_encoder_linked",
+        "version": "1.0.0",
+        "label": "",
+        "notes": "",
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": true,
+        "nodePack": "invokeai",
+        "inputs": {
+          "clip": {
+            "name": "clip",
+            "label": "",
+            "description": ""
+          },
+          "t5_encoder": {
+            "name": "t5_encoder",
+            "label": "",
+            "description": ""
+          },
+          "t5_max_seq_len": {
+            "name": "t5_max_seq_len",
+            "label": "",
+            "description": "",
+            "value": 256
+          },
+          "prompt": {
+            "name": "prompt",
+            "label": "",
+            "description": "",
+            "value": "test image"
+          },
+          "mask": {
+            "name": "mask",
+            "label": "",
+            "description": ""
+          },
+          "flux_text_encoder_list": {
+            "name": "flux_text_encoder_list",
+            "label": "",
+            "description": ""
+          }
+        }
+      },
+      "position": {
+        "x": 750,
+        "y": 1100
+      }
+    },
+    {
+      "id": "fe31ddd9-2b3b-494e-96a8-c7a7939ebc6f",
+      "type": "invocation",
+      "data": {
+        "id": "fe31ddd9-2b3b-494e-96a8-c7a7939ebc6f",
+        "type": "flux_text_encoder_linked",
+        "version": "1.0.0",
+        "label": "",
+        "notes": "",
+        "isOpen": true,
+        "isIntermediate": true,
+        "useCache": true,
+        "nodePack": "invokeai",
+        "inputs": {
+          "clip": {
+            "name": "clip",
+            "label": "",
+            "description": ""
+          },
+          "t5_encoder": {
+            "name": "t5_encoder",
+            "label": "",
+            "description": ""
+          },
+          "t5_max_seq_len": {
+            "name": "t5_max_seq_len",
+            "label": "",
+            "description": "",
+            "value": 256
+          },
+          "prompt": {
+            "name": "prompt",
+            "label": "",
+            "description": "",
+            "value": "more testing text"
+          },
+          "mask": {
+            "name": "mask",
+            "label": "",
+            "description": ""
+          },
+          "flux_text_encoder_list": {
+            "name": "flux_text_encoder_list",
+            "label": "",
+            "description": ""
+          }
+        }
+      },
+      "position": {
+        "x": 1125,
+        "y": 1100
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "0c318c61-2a7b-481f-9112-324d1d906253",
+      "type": "default",
+      "source": "flux_model_loader:FPbJoMr42L",
+      "target": "flux_denoise:vueTlz4hym",
+      "sourceHandle": "transformer",
+      "targetHandle": "transformer"
+    },
+    {
+      "id": "d18de511-4f2f-4aef-bd81-6ddf7d2ddd8a",
+      "type": "default",
+      "source": "flux_model_loader:FPbJoMr42L",
+      "target": "flux_denoise:vueTlz4hym",
+      "sourceHandle": "vae",
+      "targetHandle": "controlnet_vae"
+    },
+    {
+      "id": "0b12de20-3d0e-4534-a930-7109589b6fce",
+      "type": "default",
+      "source": "flux_model_loader:FPbJoMr42L",
+      "target": "canvas_output:ObQYoRff5e",
+      "sourceHandle": "vae",
+      "targetHandle": "vae"
+    },
+    {
+      "id": "36894b0f-6285-47d2-be58-8a2a412654e6",
+      "type": "default",
+      "source": "flux_denoise:vueTlz4hym",
+      "target": "canvas_output:ObQYoRff5e",
+      "sourceHandle": "latents",
+      "targetHandle": "latents"
+    },
+    {
+      "id": "reactflow__edge-f6f2887f-e36c-4500-957a-d2d76b9980bdcontrolnet_list-a4edddc1-9028-454b-915d-c3395b314ff3controlnet_list",
+      "type": "default",
+      "source": "f6f2887f-e36c-4500-957a-d2d76b9980bd",
+      "target": "a4edddc1-9028-454b-915d-c3395b314ff3",
+      "sourceHandle": "controlnet_list",
+      "targetHandle": "controlnet_list"
+    },
+    {
+      "id": "reactflow__edge-a4edddc1-9028-454b-915d-c3395b314ff3controlnet_list-flux_denoise:vueTlz4hymcontrol",
+      "type": "default",
+      "source": "a4edddc1-9028-454b-915d-c3395b314ff3",
+      "target": "flux_denoise:vueTlz4hym",
+      "sourceHandle": "controlnet_list",
+      "targetHandle": "control"
+    },
+    {
+      "id": "reactflow__edge-1428e397-6bb3-41e6-b54c-837d02b4a7e9redux_conditioning_list-804ab528-1edb-43f7-949f-920f89f2b11credux_conditioning_list",
+      "type": "default",
+      "source": "1428e397-6bb3-41e6-b54c-837d02b4a7e9",
+      "target": "804ab528-1edb-43f7-949f-920f89f2b11c",
+      "sourceHandle": "redux_conditioning_list",
+      "targetHandle": "redux_conditioning_list"
+    },
+    {
+      "id": "reactflow__edge-804ab528-1edb-43f7-949f-920f89f2b11credux_conditioning_list-flux_denoise:vueTlz4hymredux_conditioning",
+      "type": "default",
+      "source": "804ab528-1edb-43f7-949f-920f89f2b11c",
+      "target": "flux_denoise:vueTlz4hym",
+      "sourceHandle": "redux_conditioning_list",
+      "targetHandle": "redux_conditioning"
+    },
+    {
+      "id": "reactflow__edge-flux_model_loader:FPbJoMr42Lclip-e7ed79f4-c4b4-4b6f-9297-dbfebe383f9eclip",
+      "type": "default",
+      "source": "flux_model_loader:FPbJoMr42L",
+      "target": "e7ed79f4-c4b4-4b6f-9297-dbfebe383f9e",
+      "sourceHandle": "clip",
+      "targetHandle": "clip"
+    },
+    {
+      "id": "reactflow__edge-flux_model_loader:FPbJoMr42Lt5_encoder-e7ed79f4-c4b4-4b6f-9297-dbfebe383f9et5_encoder",
+      "type": "default",
+      "source": "flux_model_loader:FPbJoMr42L",
+      "target": "e7ed79f4-c4b4-4b6f-9297-dbfebe383f9e",
+      "sourceHandle": "t5_encoder",
+      "targetHandle": "t5_encoder"
+    },
+    {
+      "id": "reactflow__edge-flux_model_loader:FPbJoMr42Lmax_seq_len-e7ed79f4-c4b4-4b6f-9297-dbfebe383f9et5_max_seq_len",
+      "type": "default",
+      "source": "flux_model_loader:FPbJoMr42L",
+      "target": "e7ed79f4-c4b4-4b6f-9297-dbfebe383f9e",
+      "sourceHandle": "max_seq_len",
+      "targetHandle": "t5_max_seq_len"
+    },
+    {
+      "id": "reactflow__edge-e7ed79f4-c4b4-4b6f-9297-dbfebe383f9eflux_text_encoder_list-fe31ddd9-2b3b-494e-96a8-c7a7939ebc6fflux_text_encoder_list",
+      "type": "default",
+      "source": "e7ed79f4-c4b4-4b6f-9297-dbfebe383f9e",
+      "target": "fe31ddd9-2b3b-494e-96a8-c7a7939ebc6f",
+      "sourceHandle": "flux_text_encoder_list",
+      "targetHandle": "flux_text_encoder_list"
+    },
+    {
+      "id": "reactflow__edge-flux_model_loader:FPbJoMr42Lclip-fe31ddd9-2b3b-494e-96a8-c7a7939ebc6fclip",
+      "type": "default",
+      "source": "flux_model_loader:FPbJoMr42L",
+      "target": "fe31ddd9-2b3b-494e-96a8-c7a7939ebc6f",
+      "sourceHandle": "clip",
+      "targetHandle": "clip"
+    },
+    {
+      "id": "reactflow__edge-flux_model_loader:FPbJoMr42Lt5_encoder-fe31ddd9-2b3b-494e-96a8-c7a7939ebc6ft5_encoder",
+      "type": "default",
+      "source": "flux_model_loader:FPbJoMr42L",
+      "target": "fe31ddd9-2b3b-494e-96a8-c7a7939ebc6f",
+      "sourceHandle": "t5_encoder",
+      "targetHandle": "t5_encoder"
+    },
+    {
+      "id": "reactflow__edge-flux_model_loader:FPbJoMr42Lmax_seq_len-fe31ddd9-2b3b-494e-96a8-c7a7939ebc6ft5_max_seq_len",
+      "type": "default",
+      "source": "flux_model_loader:FPbJoMr42L",
+      "target": "fe31ddd9-2b3b-494e-96a8-c7a7939ebc6f",
+      "sourceHandle": "max_seq_len",
+      "targetHandle": "t5_max_seq_len"
+    },
+    {
+      "id": "reactflow__edge-fe31ddd9-2b3b-494e-96a8-c7a7939ebc6fflux_text_encoder_list-flux_denoise:vueTlz4hympositive_text_conditioning",
+      "type": "default",
+      "source": "fe31ddd9-2b3b-494e-96a8-c7a7939ebc6f",
+      "target": "flux_denoise:vueTlz4hym",
+      "sourceHandle": "flux_text_encoder_list",
+      "targetHandle": "positive_text_conditioning"
+    }
+  ]
+}
